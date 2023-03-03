@@ -48,16 +48,6 @@ mytz = configur.get('TimeZone','timezone')
 # Convert Dates for Photos into TZ Aware Dates
 #
 
-tz = pytz.timezone(mytz)
-from_date = datetime.fromisoformat(from_date)
-from_date = tz.localize(from_date, is_dst=None).astimezone(pytz.utc)
-to_date = datetime.fromisoformat(to_date)
-to_date = tz.localize(to_date, is_dst=None).astimezone(pytz.utc)
-asset_from = datetime.fromisoformat(asset_from)
-asset_from = tz.localize(asset_from, is_dst=None).astimezone(pytz.utc)
-asset_to = datetime.fromisoformat(asset_to)
-asset_to = tz.localize(asset_to, is_dst=None).astimezone(pytz.utc)
-
 #
 # Login to iCloud
 #
@@ -73,7 +63,7 @@ if api.requires_2fa:
     for i, device in enumerate(devices):
         print(
             "  %s: %s"
-            % (i, device.get("deviceName", "SMS to %s" % device.get("phoneNumber")))
+            % (i, device.get("iphone de Monica (2)", "SMS to %s" % device.get("phoneNumber")))
         )
 
     device = click.prompt("Which device would you like to use?", default=0)
